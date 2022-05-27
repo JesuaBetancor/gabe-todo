@@ -9,7 +9,7 @@ import { checkedIcon, closeIcon } from "../constants/base64src";
 const TodoItem = ({ todo, index, todosList, setTodosList }) => {
   const checkTodo = (index) => {
     const newTodos = [...todosList];
-    newTodos[index].isChecked = true;
+    newTodos[index].isChecked = !newTodos[index].isChecked;
     setTodosList(newTodos);
   };
 
