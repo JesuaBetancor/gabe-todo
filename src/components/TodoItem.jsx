@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyledTodoItem,
   StyledTodoItemButton,
@@ -7,9 +7,12 @@ import {
 import { checkedIcon, closeIcon } from "../constants/base64src";
 
 const TodoItem = ({ todo, index, todosList, setTodosList }) => {
+  const [input, setInput] = useState(todo.todoContent);
+
   const checkTodo = (index) => {
     const newTodos = [...todosList];
     newTodos[index].isChecked = !newTodos[index].isChecked;
+    newTodos[index].todoContent = input;
     setTodosList(newTodos);
   };
 
@@ -33,9 +36,10 @@ const TodoItem = ({ todo, index, todosList, setTodosList }) => {
       <StyledTodoItemContent
         className="todo-item__content"
         style={{ textDecoration: todo.isChecked ? "line-through" : "initial" }}
-      >
-        {todo.todoContent}
-      </StyledTodoItemContent>
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
 
       <StyledTodoItemButton className="todo-item__button">
         <button

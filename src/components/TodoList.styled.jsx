@@ -4,7 +4,7 @@ const StyledTodoWrapper = styled.div`
   background-color: #d8bfd8;
   width: 100%;
   min-height: 100vh;
-  heightl: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,11 +93,28 @@ const StyledTodoItemButton = styled.div`
   }
 `;
 
-const StyledTodoItemContent = styled.div`
+const StyledTodoItemContent = styled.input`
   width: calc(100% - 80px);
   align-items: center;
   display: flex;
   padding: 10px;
+`;
+
+const StyledFilterWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  min-height: 40px;
+  margin-bottom: 20px;
+
+  button {
+    border: 1px solid purple;
+    background-color: #d8bfd8;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
 `;
 
 export {
@@ -109,4 +126,5 @@ export {
   StyledTodoItem,
   StyledTodoItemButton,
   StyledTodoItemContent,
+  StyledFilterWrapper,
 };
