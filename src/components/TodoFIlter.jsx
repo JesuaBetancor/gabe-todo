@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyledFilterWrapper } from "./TodoList.styled";
 
 const TodoFilter = ({ todosList, setTodosList }) => {
   const filterItems = () => {
-    setTodosList(
-      todosList.sort((a, b) => {
+    const list = [...todosList].sort((a, b) => {
         return a["todoContent"].localeCompare(b["todoContent"]);
-      })
-    );
-    console.log(todosList);
+    });
+
+    setTodosList(list);
+    console.log(list);
   };
 
   return (
