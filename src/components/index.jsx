@@ -13,7 +13,7 @@ Missing features:
 
 - removeTodo (move it to this file, the function)
 - editTodo (same)
-- Make filter to be ordered by Z-A after A-Z click was done
+- Make filter to be ordered by Z-A after A-Z click was done (Done)
 */
 
 const todoListItems = [
@@ -36,6 +36,7 @@ const todoListItems = [
 
 const TodoList = () => {
   const [todosList, setTodosList] = useState(todoListItems);
+  const [reverse, setReverse] = useState(false);
 
   const handleTickTodo = (id) => {
     console.log(id);
@@ -57,7 +58,12 @@ const TodoList = () => {
         </StyledTodoTitle>
         <AddNewTodo todosList={todosList} setTodosList={setTodosList} />
 
-        <TodoFilter todosList={todosList} setTodosList={setTodosList} />
+        <TodoFilter
+          reverse={reverse}
+          setReverse={setReverse}
+          todosList={todosList}
+          setTodosList={setTodosList}
+        />
 
         <TodoItemsWrapper
           todosList={todosList}
