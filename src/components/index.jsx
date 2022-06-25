@@ -16,17 +16,21 @@ Missing features:
 - Make filter to be ordered by Z-A after A-Z click was done
 */
 
-
 const todoListItems = [
   {
-      id: 1,
+    id: 1,
     todoContent: "Make a ToDo list",
     isChecked: true,
   },
   {
-      id: 2,
+    id: 2,
     todoContent: "Don't forget to do a ToDo list",
     isChecked: true,
+  },
+  {
+    id: 3,
+    todoContent: "Isn't this the best ToDo list ever made?",
+    isChecked: false,
   },
 ];
 
@@ -34,14 +38,16 @@ const TodoList = () => {
   const [todosList, setTodosList] = useState(todoListItems);
 
   const handleTickTodo = (id) => {
-      console.log(id)
-      console.log(todosList)
-      const newTodoList = todosList.map(item => {
-          return Number(item.id) === Number(id) ? ({...item, isChecked: !item.isChecked}) : item
-      })
-      console.log(newTodoList)
-      setTodosList(newTodoList);
-  }
+    console.log(id);
+    console.log(todosList);
+    const newTodoList = todosList.map((item) => {
+      return Number(item.id) === Number(id)
+        ? { ...item, isChecked: !item.isChecked }
+        : item;
+    });
+    console.log(newTodoList);
+    setTodosList(newTodoList);
+  };
 
   return (
     <StyledTodoWrapper className="todo-wrapper">
@@ -54,10 +60,10 @@ const TodoList = () => {
         <TodoFilter todosList={todosList} setTodosList={setTodosList} />
 
         <TodoItemsWrapper
-            todosList={todosList}
-            setTodosList={setTodosList}
-            handleTickTodo={handleTickTodo}
-            />
+          todosList={todosList}
+          setTodosList={setTodosList}
+          handleTickTodo={handleTickTodo}
+        />
       </StyledTodoContent>
     </StyledTodoWrapper>
   );

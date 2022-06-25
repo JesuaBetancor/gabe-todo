@@ -6,7 +6,10 @@ const AddNewTodo = ({ todosList, setTodosList }) => {
   const [inputValue, setInputValue] = useState("");
 
   const addTodo = (todoContent) => {
-    const newTodos = [...todosList, { todoContent, isChecked: false }];
+    const newTodos = [
+      ...todosList,
+      { todoContent, isChecked: false, id: todosList.length + 1 },
+    ];
     setTodosList(newTodos);
   };
 
