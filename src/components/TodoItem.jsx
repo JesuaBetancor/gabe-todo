@@ -6,17 +6,7 @@ import {
 } from "./TodoList.styled";
 import { checkedIcon, closeIcon } from "../constants/base64src";
 
-function removeTodo(itemIndex) {
-  console.log("helloooo");
-}
-const TodoItem = ({ todo, index, todosList, setTodosList, handleTickTodo }) => {
-  // MOVE IT TO GLOBAL
-  // const removeTodo = (itemIndex) => {
-  //   const newTodos = [...todosList];
-  //   newTodos.splice(itemIndex, 1);
-  //   setTodosList(newTodos);
-  // };
-
+const TodoItem = ({ todo, index, handleTickTodo, removeTodo }) => {
   return (
     <StyledTodoItem className="todo-item">
       <StyledTodoItemButton className="todo-item__button">

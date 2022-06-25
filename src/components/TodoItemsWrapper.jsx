@@ -1,7 +1,12 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoItemsWrapper = ({ todosList, setTodosList, handleTickTodo }) => {
+const TodoItemsWrapper = ({
+  todosList,
+  setTodosList,
+  handleTickTodo,
+  removeTodo,
+}) => {
   return (
     <div className="todo-list-wrapper">
       {todosList.map((todo) => (
@@ -12,6 +17,7 @@ const TodoItemsWrapper = ({ todosList, setTodosList, handleTickTodo }) => {
           todosList={todosList}
           setTodosList={setTodosList}
           handleTickTodo={handleTickTodo}
+          removeTodo={removeTodo}
         />
       ))}
     </div>

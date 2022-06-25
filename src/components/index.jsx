@@ -11,7 +11,7 @@ import {
 /*
 Missing features:
 
-- removeTodo (move it to this file, the function)
+- removeTodo (move it to this file, the function) (Done)
 - editTodo (same)
 - Make filter to be ordered by Z-A after A-Z click was done (Done)
 */
@@ -39,15 +39,21 @@ const TodoList = () => {
   const [reverse, setReverse] = useState(false);
 
   const handleTickTodo = (id) => {
-    console.log(id);
-    console.log(todosList);
     const newTodoList = todosList.map((item) => {
       return Number(item.id) === Number(id)
         ? { ...item, isChecked: !item.isChecked }
         : item;
     });
-    console.log(newTodoList);
+
     setTodosList(newTodoList);
+  };
+
+  const removeTodo = (index) => {
+    const newTodos = [...todosList].filter((item) => {
+      return item.id !== index;
+    });
+
+    setTodosList(newTodos);
   };
 
   return (
@@ -66,6 +72,7 @@ const TodoList = () => {
         />
 
         <TodoItemsWrapper
+          removeTodo={removeTodo}
           todosList={todosList}
           setTodosList={setTodosList}
           handleTickTodo={handleTickTodo}

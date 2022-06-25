@@ -4,6 +4,7 @@ import { StyledFilterWrapper } from "./TodoList.styled";
 const TodoFilter = ({ todosList, setTodosList, setReverse, reverse }) => {
   const filterItems = () => {
     setReverse(!reverse);
+
     const list = [...todosList].sort((a, b) => {
       return reverse
         ? b["todoContent"].localeCompare(a["todoContent"])
@@ -11,7 +12,6 @@ const TodoFilter = ({ todosList, setTodosList, setReverse, reverse }) => {
     });
 
     setTodosList(list);
-    console.log(list);
   };
 
   return (
