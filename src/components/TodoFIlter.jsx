@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyledFilterWrapper } from "./TodoList.styled";
 
-const TodoFilter = ({ todosList, setTodosList }) => {
+const TodoFilter = ({ todosList, setTodosList, setReverse, reverse }) => {
   const filterItems = () => {
-    setTodosList(
-      todosList.sort((a, b) => {
-        return a["todoContent"].localeCompare(b["todoContent"]);
-      })
-    );
-    console.log(todosList);
+    setReverse(!reverse);
+
+    const list = [...todosList].sort((a, b) => {
+      return reverse
+        ? b["todoContent"].localeCompare(a["todoContent"])
+        : a["todoContent"].localeCompare(b["todoContent"]);
+    });
+
+    setTodosList(list);
   };
 
   return (

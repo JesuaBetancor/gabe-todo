@@ -6,7 +6,14 @@ const AddNewTodo = ({ todosList, setTodosList }) => {
   const [inputValue, setInputValue] = useState("");
 
   const addTodo = (todoContent) => {
-    const newTodos = [...todosList, { todoContent }];
+    const newTodos = [
+      ...todosList,
+      {
+        todoContent,
+        isChecked: false,
+        id: Math.floor(100000000 + Math.random() * 900000000),
+      },
+    ];
     setTodosList(newTodos);
   };
 
