@@ -64,7 +64,6 @@ const TodoList = () => {
       return handledItem;
     });
     setTodosList(handledList);
-    console.log(handledList, "handled list");
   };
 
   return (
