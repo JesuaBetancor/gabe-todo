@@ -6,25 +6,19 @@ import {
 } from "./TodoList.styled";
 import { checkedIcon, closeIcon } from "../constants/base64src";
 
-const TodoItem = ({ todo, index, todosList, setTodosList }) => {
-  const checkTodo = (index) => {
-    const newTodos = [...todosList];
-    newTodos[index].isChecked = !newTodos[index].isChecked;
-    setTodosList(newTodos);
-  };
-
-  const removeTodo = (index) => {
-    const newTodos = [...todosList];
-    newTodos.splice(index, 1);
-    setTodosList(newTodos);
-  };
-
+const TodoItem = ({
+  todo,
+  index,
+  handleTickTodo,
+  removeTodo,
+  handleInputText,
+}) => {
   return (
     <StyledTodoItem className="todo-item">
       <StyledTodoItemButton className="todo-item__button">
         <button
           className="todo-item__button-check"
-          onClick={() => checkTodo(index)}
+          onClick={() => handleTickTodo(index)}
         >
           <img src={checkedIcon} alt="Check Icon" />
         </button>
@@ -33,9 +27,14 @@ const TodoItem = ({ todo, index, todosList, setTodosList }) => {
       <StyledTodoItemContent
         className="todo-item__content"
         style={{ textDecoration: todo.isChecked ? "line-through" : "initial" }}
-      >
-        {todo.todoContent}
-      </StyledTodoItemContent>
+        type="text"
+        value={todo.todoContent}
+        onChange={(e) => {
+          let inputValue = e.target.value;
+          let oldTodo = todo;
+          handleInputText(inputValue, oldTodo);
+        }}
+      />
 
       <StyledTodoItemButton className="todo-item__button">
         <button

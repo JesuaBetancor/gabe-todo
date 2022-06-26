@@ -4,7 +4,7 @@ const StyledTodoWrapper = styled.div`
   background-color: #d8bfd8;
   width: 100%;
   min-height: 100vh;
-  heightl: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,6 +71,31 @@ const StyledAddNewTodoContent = styled.div`
   }
 `;
 
+const StyledTodoListWrapper = styled.div`
+  max-height: 240px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  /* Scroll bar styling */
+  &::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: green;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+`;
+
 const StyledTodoItem = styled.div`
   display: flex;
   min-height: 40px;
@@ -93,11 +118,28 @@ const StyledTodoItemButton = styled.div`
   }
 `;
 
-const StyledTodoItemContent = styled.div`
+const StyledTodoItemContent = styled.input`
   width: calc(100% - 80px);
   align-items: center;
   display: flex;
   padding: 10px;
+`;
+
+const StyledFilterWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  min-height: 40px;
+  margin-bottom: 20px;
+
+  button {
+    border: 1px solid purple;
+    background-color: #d8bfd8;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
 `;
 
 export {
@@ -109,4 +151,6 @@ export {
   StyledTodoItem,
   StyledTodoItemButton,
   StyledTodoItemContent,
+  StyledFilterWrapper,
+  StyledTodoListWrapper,
 };
