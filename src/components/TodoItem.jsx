@@ -6,7 +6,13 @@ import {
 } from "./TodoList.styled";
 import { checkedIcon, closeIcon } from "../constants/base64src";
 
-const TodoItem = ({ todo, index, handleTickTodo, removeTodo }) => {
+const TodoItem = ({
+  todo,
+  index,
+  handleTickTodo,
+  removeTodo,
+  handleInputText,
+}) => {
   return (
     <StyledTodoItem className="todo-item">
       <StyledTodoItemButton className="todo-item__button">
@@ -23,7 +29,11 @@ const TodoItem = ({ todo, index, handleTickTodo, removeTodo }) => {
         style={{ textDecoration: todo.isChecked ? "line-through" : "initial" }}
         type="text"
         value={todo.todoContent}
-        onChange={() => console.log("on change")}
+        onChange={(e) => {
+          let inputValue = e.target.value;
+          let oldTodo = todo;
+          handleInputText(inputValue, oldTodo);
+        }}
       />
 
       <StyledTodoItemButton className="todo-item__button">

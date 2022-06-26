@@ -12,7 +12,7 @@ import {
 Missing features:
 
 - removeTodo (move it to this file, the function) (Done)
-- editTodo (same)
+- editTodo (same) (Done)
 - Make filter to be ordered by Z-A after A-Z click was done (Done)
 */
 
@@ -56,6 +56,17 @@ const TodoList = () => {
     setTodosList(newTodos);
   };
 
+  const handleInputText = (inputValue, oldTodo) => {
+    const handledList = [...todosList].map((handledItem) => {
+      if (handledItem.id === oldTodo.id) {
+        handledItem.todoContent = inputValue;
+      }
+      return handledItem;
+    });
+    setTodosList(handledList);
+    console.log(handledList, "handled list");
+  };
+
   return (
     <StyledTodoWrapper className="todo-wrapper">
       <StyledTodoContent className="todo-wrapper__content">
@@ -72,6 +83,7 @@ const TodoList = () => {
         />
 
         <TodoItemsWrapper
+          handleInputText={handleInputText}
           removeTodo={removeTodo}
           todosList={todosList}
           setTodosList={setTodosList}

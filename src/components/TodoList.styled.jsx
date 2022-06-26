@@ -71,6 +71,31 @@ const StyledAddNewTodoContent = styled.div`
   }
 `;
 
+const StyledTodoListWrapper = styled.div`
+  max-height: 240px;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  /* Scroll bar styling */
+  &::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: green;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+`;
+
 const StyledTodoItem = styled.div`
   display: flex;
   min-height: 40px;
@@ -127,4 +152,5 @@ export {
   StyledTodoItemButton,
   StyledTodoItemContent,
   StyledFilterWrapper,
+  StyledTodoListWrapper,
 };
