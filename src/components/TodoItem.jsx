@@ -3,6 +3,7 @@ import {
   StyledTodoItem,
   StyledTodoItemButton,
   StyledTodoItemContent,
+  StyledCardInfo,
 } from "./TodoList.styled";
 import { checkedIcon, closeIcon } from "../constants/base64src";
 
@@ -44,6 +45,21 @@ const TodoItem = ({
           <img src={closeIcon} alt="Close Icon" />
         </button>
       </StyledTodoItemButton>
+      <StyledCardInfo>
+        {todo.image && <img src={todo.image} alt="x" />}
+        <h2 className="poke-name">
+          {todo.name} <span className="red-id">#{todo.id}</span>
+        </h2>
+        <p>
+          <b>Description:</b> {todo.todoContent}
+        </p>
+        <p>
+          <b>Types:</b>
+          {todo.types.map((e) => (
+            <span key={e.slot}> {e.type.name} </span>
+          ))}
+        </p>
+      </StyledCardInfo>
     </StyledTodoItem>
   );
 };

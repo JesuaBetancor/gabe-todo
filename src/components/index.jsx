@@ -8,29 +8,38 @@ import {
   StyledTodoTitle,
 } from "./TodoList.styled";
 
-/*
-Missing features:
-
-- removeTodo (move it to this file, the function) (Done)
-- editTodo (same) (Done)
-- Make filter to be ordered by Z-A after A-Z click was done (Done)
-*/
-
 const todoListItems = [
   {
     id: 1,
-    todoContent: "Make a ToDo list",
-    isChecked: true,
-  },
-  {
-    id: 2,
-    todoContent: "Don't forget to do a ToDo list",
-    isChecked: true,
-  },
-  {
-    id: 3,
-    todoContent: "Isn't this the best ToDo list ever made?",
+    todoContent: "This is the worst pokemon. WTF is with the flower?",
     isChecked: false,
+    name: "Testemon",
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    types: [
+      {
+        slot: 1,
+        type: {
+          name: "mother",
+        },
+      },
+      {
+        slot: 2,
+        type: {
+          name: "lover",
+        },
+      },
+      {
+        slot: 3,
+        type: {
+          name: "(incest)",
+        },
+      },
+    ],
+    sprites: {
+      front_default:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    },
   },
 ];
 
@@ -70,7 +79,7 @@ const TodoList = () => {
     <StyledTodoWrapper className="todo-wrapper">
       <StyledTodoContent className="todo-wrapper__content">
         <StyledTodoTitle className="todo-title__wrapper">
-          <h1>Gabe's mesmerising Todo List</h1>
+          <h1>Poke Asylum</h1>
         </StyledTodoTitle>
         <AddNewTodo todosList={todosList} setTodosList={setTodosList} />
 
