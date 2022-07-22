@@ -12,7 +12,7 @@ const StyledTodoWrapper = styled.div`
 
 const StyledTodoContent = styled.div`
   background-color: #b0e0e6;
-  width: 400px;
+  width: 800px;
   max-width: 80%;
   min-height: 500px;
   margin-top: 20px;
@@ -60,7 +60,7 @@ const StyledAddNewTodoContent = styled.div`
       background-color: #d8bfd8;
       color: #006400;
       width: 40px;
-      height: 40px;
+      height: 84px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -72,9 +72,11 @@ const StyledAddNewTodoContent = styled.div`
 `;
 
 const StyledTodoListWrapper = styled.div`
-  max-height: 240px;
   overflow-x: hidden;
   overflow-y: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
   /* Scroll bar styling */
   &::-webkit-scrollbar {
@@ -102,11 +104,13 @@ const StyledTodoItem = styled.div`
   margin-bottom: 10px;
   background-color: #fff8dc;
   border-radius: 6px;
+  flex-wrap: wrap;
+  flex-basis: calc(50% - 10px);
+  box-sizing: border-box;
 `;
 
 const StyledTodoItemButton = styled.div`
-  width: 40px;
-  height: 40px;
+  flex-basis: 40px;
 
   button {
     display: flex;
@@ -119,7 +123,7 @@ const StyledTodoItemButton = styled.div`
 `;
 
 const StyledTodoItemContent = styled.input`
-  width: calc(100% - 80px);
+  flex-basis: calc(100% - 110px);
   align-items: center;
   display: flex;
   padding: 10px;
@@ -142,6 +146,27 @@ const StyledFilterWrapper = styled.div`
   }
 `;
 
+const StyledCardInfo = styled.div`
+  flex-basis: 100%;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid red;
+
+  img {
+    margin: auto;
+    display: block;
+  }
+
+  .poke-name {
+    text-align: center;
+    text-transform: capitalize;
+
+    .red-id {
+      color: red;
+    }
+  }
+`;
+
 export {
   StyledTodoWrapper,
   StyledTodoContent,
@@ -153,4 +178,5 @@ export {
   StyledTodoItemContent,
   StyledFilterWrapper,
   StyledTodoListWrapper,
+  StyledCardInfo,
 };
